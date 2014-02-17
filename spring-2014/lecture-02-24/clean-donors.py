@@ -34,11 +34,16 @@ output = []
 for line in data:
     # Just a bit of added cleanup because of the file format. Leave this in.
     line = line.replace('\r\n', '')
-
     ########## YOUR CODE STARTS HERE ##########
-    
-    print line # You can replace this
 
-    ########## YOUR CODE ENDS HERE ##########
+    line = line.replace('&nbsp;', ' ')
+    line = line.split(',')
+    line[11] = line[11].capitalize()
+    line[13] = line[13].lower().capitalize()
+    if line[20] != 'amount':
+        line[20] = float(line[20])
+    output.append(line)
+
+#     ########## YOUR CODE ENDS HERE ##########
 
 print output # This will show your final output
